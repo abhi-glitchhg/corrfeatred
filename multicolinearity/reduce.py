@@ -35,23 +35,23 @@ def reduce_features(corr_matrix, threshhold=0.0):
                 dict2[key].append(idx)
     while not np.all(mask): 
 
-        print(dict1, "\n", dict2)
+        # print(dict1, "\n", dict2)
 
         
         sorted_list = sorted(dict1.items(), key = lambda kv: kv[1], reverse=True)
-        print(sorted_list)
+        # print(sorted_list)
         
         top = sorted_list[0]
-        print(top)
+        # print(top)
         feature_set.append(top[0])
         mask[dict2[top[0]]] = True
-        print(mask)
+        # print(mask)
         
         for i in dict2[top[0]]:
             for j in cliques[i]:
                 dict1[j]-= 1
 
-        print("iter finished \n\n\n")
+        # print("iter finished \n\n\n")
     return feature_set
 
 
