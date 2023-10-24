@@ -13,9 +13,8 @@ def reduce_features(corr_matrix, threshhold):
     method: 
     """
 
-    corr_matrix_ = np.triu(corr_matrix)
-    for i in range(corr_matrix_.shape[0]):
-        corr_matrix_[i][i] = 0
+    
+    
 
     G = nx.Graph(corr_matrix)
 
