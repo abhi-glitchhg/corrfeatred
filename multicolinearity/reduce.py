@@ -20,6 +20,23 @@ def reduce_features(corr_matrix, threshhold):
     G = nx.Graph(corr_matrix)
 
     cliques = clique.find_cliques(G)
-    # thnk about some algo to do stuff.
+    
+
+
+
+if __name__ == "__main__":
+    adjacency_matrix = np.array([
+    
+                             [1,1,1,0,0,0,1,1,0], #a
+                             [1,1,1,0,0,0,0,0,0], #b
+                             [1,1,1,1,0,0,0,0,0], #c 
+                             [0,0,1,1,1,0,0,0,0], #d 
+                             [0,0,0,1,1,1,0,0,0], #e
+                             [0,0,0,0,1,1,1,1,1], #f
+                             [1,0,0,0,0,1,1,1,1], #g
+                             [1,0,0,0,0,1,1,1,1], #h
+                             [0,0,0,0,0,1,1,1,1], #i
+                             ])
+
 
 
