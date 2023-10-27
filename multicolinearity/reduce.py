@@ -10,8 +10,10 @@ def reduce_features(corr_matrix, threshhold=0.0,):
 #     """
 #     correlation matrix : df.corr
 #     threshhold: float
-#     method:
+#     method: `min` or `max` default is min 
 #     """
+    assert method in ('min', 'max'), "wrong input parameter"
+    method = max if method == 'max' else min
     feature_set = []
     del_this = []
     cols = np.array(corr_matrix.columns)
