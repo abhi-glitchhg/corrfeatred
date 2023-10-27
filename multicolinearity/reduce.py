@@ -43,10 +43,10 @@ def reduce_features(corr_matrix, threshhold=0.0,):
                 dict2[key].append(idx) # node to group mapping
     while not np.all(mask):
 
-        sorted_list = sorted(dict1.items(), key = lambda kv: kv[1], reverse=True)
+        top = max(dict1.items(), key = lambda kv: kv[1])
         # print(sorted_list)
        
-        top = sorted_list[0]
+        
         if top[1] <=0 : break
         feature_set.append(cols_new[top[0]])
        
