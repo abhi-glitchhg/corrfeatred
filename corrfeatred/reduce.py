@@ -1,3 +1,4 @@
+
 import numpy as np
 from collections import defaultdict
 import networkx as nx
@@ -5,7 +6,7 @@ from networkx.algorithms import clique
 import pandas as pd
 import random
 
-def reduce_features(corrmatrix, threshhold=0.75,method_='min', random_state=None):
+def reduce_features(corrmatrix_, threshhold=0.75,method_='min', random_state=None):
 
 
 #     """
@@ -16,8 +17,8 @@ def reduce_features(corrmatrix, threshhold=0.75,method_='min', random_state=None
 
     if random_state!=None:
         random_gen = random.Random(random_state)
-
-    inf_ = 3*(corrmatrix.shape[0]) + 10 # adding 10 for no reason, this could be any positive number; but messi is GOAT.
+    corrmatrix = corrmatrix_.copy()
+    inf_ = 4*(corrmatrix.shape[0]) + 10 # adding 10 for no reason, this could be any positive number; but messi is GOAT.
     corr_matrix = corrmatrix > threshhold
     assert method_ in ('min', 'max'), "wrong input parameter"
     method = max if method_ == 'min' else min
@@ -36,7 +37,8 @@ def reduce_features(corrmatrix, threshhold=0.75,method_='min', random_state=None
     cols_new = np.delete(cols, del_this, axis=0)
     G = nx.Graph(corr_matrix)    
     cliques = list(clique.find_cliques(G))
-    # print(cliques)
+    #print(cliques)
+    #nx.draw(G)
     cliques = sorted(cliques, key=lambda x: len(x), reverse=True)
     mask = np.zeros(len(cliques), dtype=bool)
    
@@ -57,19 +59,17 @@ def reduce_features(corrmatrix, threshhold=0.75,method_='min', random_state=None
             top = method(dict_items, key = lambda kv: kv[1])
             del dict_items
         
-        if top[1] <=0 : break
-        if top[1] >= inf_: break
+        if top[1] <=0 : break 
+        if top[1] >= inf_//2: break
         feature_set.append(cols_new[top[0]])
        
-        assert sum(mask[dict2[top[0]]]) == 0, "sum should be zero here"
        
         mask[dict2[top[0]]] = True
        
         for i in dict2[top[0]]:
             for j in cliques[i]:
                 dict1[j]-= 1
-        # direct connections with top[0] must be made 0;
-       
+        
         for i in np.where(corr_matrix[top[0]])[0]: 
           if method_ == 'min': 
             dict1[i] = 0
@@ -82,28 +82,6 @@ def reduce_features(corrmatrix, threshhold=0.75,method_='min', random_state=None
           dict1[top[0]] = inf_
         #print(dict1.items())
        
-       
+    del corrmatrix
     return feature_set
-if __name__ == "__main__":
-    adjacency_matrix = pd.DataFrame(np.array([
-    
-                             [1,1,1,0,0,0,1,1,0], #a
-                             [1,1,1,0,0,0,0,0,0], #b
-                             [1,1,1,1,0,0,0,0,0], #c 
-                             [0,0,1,1,1,0,0,0,0], #d 
-                             [0,0,0,1,1,1,0,0,0], #e
-                             [0,0,0,0,1,1,1,1,1], #f
-                             [1,0,0,0,0,1,1,1,1], #g
-                             [1,0,0,0,0,1,1,1,1], #h
-                             [0,0,0,0,0,1,1,1,1], #i
-                             ]))
-    
-    a = reduce_features(adjacency_matrix,0.75)
-
-    print(f"final feautre set is: {a}")
-
-    b = reduce_features(adjacency_matrix, 0.75, 'max')
-    print(b)
-
-    print(reduce_features(adjacency_matrix, 0.75, 'max', 42))
 

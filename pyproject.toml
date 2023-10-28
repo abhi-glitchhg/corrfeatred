@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "corrfeatred"
+version = "0.0.1"
+authors = [
+  { name="Abhijit Deo", email="f20190041g@alumni.bits-pilani.ac.in" },
+]
+description = "A python module to reduce features using correlation matrix"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/abhi-glitchhg/corrfeatred"
+"Bug Tracker" = "https://github.com/abhi-glitchhg/corrfeatred/issues"
