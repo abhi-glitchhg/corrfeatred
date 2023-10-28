@@ -7,7 +7,7 @@ def test_hello():
 
 
 def test_correlation():
-    for i in (4,8,10,12,16,22,100,1000,5000,10000,150000, 20_000):
+    for i in (4,8,10,12,16,22,100,1000,5000,10000,15000, 20000):
         rand_array = np.random.uniform(0,1,i*i).reshape(i,i)
         corr_arr = np.tril(rand_array) + np.triu(rand_array.T,1)
         assert (corr_arr!=corr_arr.T).sum().sum() == 0
