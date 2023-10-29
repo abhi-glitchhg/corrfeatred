@@ -34,8 +34,8 @@ Currently there is only one function which takes correlation matrix and threshho
 
 There after we find maximal cliques in the graph and our goal is to have at max one feature from each clique.
 
+![workflow](https://github.com/abhi-glitchhg/corrfeatred/assets/72816663/731c0be4-75a0-4355-b4aa-7682d7759d38)
 
-![workflow](https://github.com/abhi-glitchhg/corrfeatred/assets/72816663/b67118f6-f7dd-4123-8adc-23045b7b63f7)
 
 
 
