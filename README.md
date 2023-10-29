@@ -1,6 +1,7 @@
+
+[![Publish to PyPI](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/publish.yml/badge.svg)](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/publish.yml) [![Tests](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/test.yml/badge.svg)](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/test.yml)
+
 # corrfeatred
-
-
 
 reduce features using correlation matrix 
 
