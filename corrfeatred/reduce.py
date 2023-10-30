@@ -17,7 +17,7 @@ def reduce_features(correlation_matrix, threshhold=0.75,policy='min', random_sta
 
     if random_state!=None:
         random_gen = random.Random(random_state)
-    corrmatrix = correlation_matrix.copy()
+    corrmatrix = correlation_matrix.abs().copy()
     inf_ = 4*(corrmatrix.shape[0]) + 10 # adding 10 for no reason, this could be any positive number;
     corr_matrix = corrmatrix > threshhold
     assert policy in ('min', 'max'), "wrong input parameter"
