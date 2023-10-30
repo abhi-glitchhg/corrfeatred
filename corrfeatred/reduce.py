@@ -5,18 +5,18 @@ import networkx as nx
 from networkx.algorithms import clique
 import random
 
-def reduce_features(correlation_matrix, threshhold=0.75,policy='min', random_state=None):
+def reduce_features(correlation_matrix, threshhold=0.75,policy='min', random_seed=None):
 
 
 #     """
 #     correlation_matrix : df.corr
 #     threshhold: float
 #     method: whether we want minimum number of features or maximum number of features. NOTE: this is bit unstable and sometimes `min` policy has more features than `max`, this depends on how graph develops. 
-#     random_state: random state, use this to get different set of features for same correlation matrix.  
+#     random_seed: random state, use this to get different set of features for same correlation matrix.  
 #     """
 
-    if random_state!=None:
-        random_gen = random.Random(random_state)
+    if random_seed!=None:
+        random_gen = random.Random(random_seed)
     corrmatrix = correlation_matrix.abs().copy()
     inf_ = 4*(corrmatrix.shape[0]) + 10 # adding 10 for no reason, this could be any positive number;
     corr_matrix = corrmatrix > threshhold
@@ -50,7 +50,7 @@ def reduce_features(correlation_matrix, threshhold=0.75,policy='min', random_sta
                 node_to_clique_list[key].append(idx) # node to group mapping
     while not np.all(mask):
 
-        if random_state==None:
+        if random_seed==None:
             top = method(node_to_clique_count.items(), key = lambda kv: kv[1])
         else:
             dict_items = list(node_to_clique_count.items())
