@@ -3,7 +3,7 @@
 
 # corrfeatred
 
-reduce features using correlation matrix 
+select features using correlation matrix 
 
 ## Installation 
 
