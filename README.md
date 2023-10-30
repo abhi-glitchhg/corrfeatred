@@ -25,7 +25,7 @@ feature_set = reduce_features(correlation_matrix, threshhold=0.8, policy='min')
 
 # if you want another set of features for same correlation matrix, then use random seed to change the output.
 
-different_feature_set = reduce_features(correlation_matrix, threshhold=0.8, policy='min', random_seed = 42)
+different_feature_set = reduce_features(correlation_matrix, threshhold=0.8, policy='min', random_state = 42)
 ```
 
 
