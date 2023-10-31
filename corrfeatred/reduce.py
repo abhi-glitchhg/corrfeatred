@@ -5,12 +5,12 @@ import networkx as nx
 from networkx.algorithms import clique
 import random
 
-def reduce_features(correlation_matrix, threshhold=0.75,policy='min', random_state=None):
+def reduce_features(correlation_matrix, threshold=0.75,policy='min', random_state=None):
 
 
 #     """
 #     correlation_matrix : df.corr
-#     threshhold: float
+#     threshold: float
 #     method: whether we want minimum number of features or maximum number of features. NOTE: this is bit unstable and sometimes `min` policy has more features than `max`, this depends on how graph develops. 
 #     random_state: random state, use this to get different set of features for same correlation matrix.  
 #     """
@@ -19,7 +19,7 @@ def reduce_features(correlation_matrix, threshhold=0.75,policy='min', random_sta
         random_gen = random.Random(random_state)
     corrmatrix = correlation_matrix.copy()
     inf_ = 4*(corrmatrix.shape[0]) + 10 # adding 10 for no reason, this could be any positive number;
-    corr_matrix = corrmatrix > threshhold
+    corr_matrix = corrmatrix > threshold
     assert policy in ('min', 'max'), "wrong input parameter"
     method = max if policy == 'min' else min
     feature_set = []

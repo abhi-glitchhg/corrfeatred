@@ -15,13 +15,13 @@ def test_correlation():
             corr_arr[j][j] = 1
         
         corr_matrix = pd.DataFrame(corr_arr,columns=[str(k) for k in range(i)], index=[str(k) for k in range(i)])
-        for threshhold in (0.6,0.8,.99):
-            print(i,threshhold)
-            feats_min = reduce_features(corr_matrix, threshhold=threshhold, policy= 'min')
-            feats_max = reduce_features(corr_matrix, threshhold=threshhold, policy='max')
+        for threshold in (0.6,0.8,.99):
+            print(i,threshold)
+            feats_min = reduce_features(corr_matrix, threshold=threshold, policy= 'min')
+            feats_max = reduce_features(corr_matrix, threshold=threshold, policy='max')
 
-            assert (corr_matrix[feats_max].loc[feats_max]>threshhold).sum().sum() == len(feats_max)
-            assert (corr_matrix[feats_min].loc[feats_min]>threshhold).sum().sum() == len(feats_min)
+            assert (corr_matrix[feats_max].loc[feats_max]>threshold).sum().sum() == len(feats_max)
+            assert (corr_matrix[feats_min].loc[feats_min]>threshold).sum().sum() == len(feats_min)
 
 
 
