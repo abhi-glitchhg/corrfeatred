@@ -5,7 +5,7 @@ import networkx as nx
 from networkx.algorithms import clique
 import random
 
-def reduce_features(correlation_matrix, threshold=0.75,policy='min', random_state=None):
+def reduce_features(correlation_matrix, threshold=0.75,policy='min', random_seed=None):
 
 
 #     """
