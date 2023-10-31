@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "corrfeatred"
-version = "0.0.3.1"
+version = "0.0.3.2"
 authors = [
   { name="Abhijit Deo", email="f20190041g@alumni.bits-pilani.ac.in" },
 ]
