@@ -1,5 +1,5 @@
 
-[![Publish to PyPI](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/publish.yml/badge.svg)](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/publish.yml) [![Tests](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/test.yml/badge.svg)](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/test.yml)
+[![Publish to PyPI](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/publish.yml/badge.svg)](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/publish.yml) [![Tests](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/test.yml/badge.svg)](https://github.com/abhi-glitchhg/corrfeatred/actions/workflows/test.yml) [![total corrfeatred downloads](https://pepy.tech/badge/corrfeatred)](https://pepy.tech/project/corrfeatred)
 
 # corrfeatred
 
